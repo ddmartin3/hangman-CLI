@@ -1,0 +1,33 @@
+{
+  "name": "hangman-cli",
+  "version": "1.0.0",
+  "description": "A hangman game that is played in the console",
+  "main": "game.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ddmartin3/hangman-CLI.git"
+  },
+  "keywords": [
+    "hangman",
+    "console",
+    "game",
+    "game",
+    "hangman",
+    "game"
+  ],
+  "author": "Darwood Martin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ddmartin3/hangman-CLI/issues"
+  },
+  "homepage": "https://github.com/ddmartin3/hangman-CLI#readme",
+  "dependencies": {
+    "fs": "0.0.1-security",
+    "inquire": "^0.4.8",
+    "prompt": "^1.0.0",
+    "require": "^2.4.20"
+  }
+}
