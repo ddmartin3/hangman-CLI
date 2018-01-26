@@ -24,10 +24,6 @@ var start = function(choice){
     var gameWordObj = new Word(gameWord);
         gameWordObj.letterBuilder();  
     
-    //tests
-    console.log(gameWord);
-    console.log(gameWordObj);
-
     
     //In game prompts
     letterPrompt();
@@ -96,5 +92,3 @@ gameLoad();
 
 
 
-// tests
-//  start("cars");
