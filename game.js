@@ -23,6 +23,7 @@ var start = function(choice){
     }
     var gameWordObj = new Word(gameWord);
         gameWordObj.letterBuilder();  
+        gameWordObj.toString();
     
     
     //In game prompts
