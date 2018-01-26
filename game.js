@@ -35,24 +35,54 @@ var start = function(choice){
     //prompt until player loses:
     function letterPrompt() {
         if (loose == 0) {
-            console.log("Game Over");
+            console.log("Game Over! Would you like to play another?");
+            restartPrompt();
+        }else if(win == gameWordObj.charArray.length - 1){
+            console.log("You Win!  Would you like to play another?");
+            restartPrompt();
         }else{ 
             console.log("Letters Guessed: "+previousPlayArr.toString());
             console.log("Guesses Left: " + loose);
             prompt.start();
             prompt.get(['letter'], function (err, result) {
                 playLetter = result.letter;
-                previousPlayArr.push(playLetter);
-                gameWordObj.search(playLetter);
-                gameWordObj.toString();
-                if(gameWordObj.charArray.indexOf(playLetter) == -1 ){loose= (loose - 1)};
-                letterPrompt();
+                if (previousPlayArr.indexOf(playLetter) != -1)  {
+                    console.log(playLetter+" has already been played.")
+                    letterPrompt();
+                }else{
+                    previousPlayArr.push(playLetter);
+                    gameWordObj.search(playLetter);
+                    gameWordObj.toString();
+                    if(gameWordObj.charArray.indexOf(playLetter) == -1 ){
+                        loose= (loose - 1);
+                    }else{
+                        win = (win + 1);
+                    };
+                    letterPrompt();
+                }
             });
         }
+    }
+    function restartPrompt(){
+        prompt.start();
+        prompt.get(['yes_or_no'], function (err, result) {
+            restartDecision = result.yes_or_no;
+            if (restartDecision == "yes") {
+                win = 0;
+                loose = 10;
+                previousPlayArr= [];
+                gameLoad();
+            }else{
+                console.log("thanks for playing.");
+            }
+
+        });
+
     }
 
 }
 
+function gameLoad() {
     // Start the prompt 
     prompt.start();
 
@@ -60,9 +90,9 @@ var start = function(choice){
         choice = result.Select_game;
         start(choice);
     });
+}
 
-
-
+gameLoad();
 
 
 
